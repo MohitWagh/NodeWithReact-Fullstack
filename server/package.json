@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "web": "index.js",
   "main": "index.js",
   "engines": {
     "node": "12.13.1",

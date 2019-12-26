@@ -1,9 +1,9 @@
 console.log('\nserver is now up\n')
+const keys = require('./config/keys');
 const express = require('express');
 const mongoose = require('mongoose');
 const cookiesSession = require('cookie-session');
 const passport = require('passport');
-const keys = require('./config/keys');
 require('./models/user');
 require('./services/passport');
 

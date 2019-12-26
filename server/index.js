@@ -1,3 +1,4 @@
+console.log('\nserver is now up\n')
 const express = require('express');
 const mongoose = require('mongoose');
 const cookiesSession = require('cookie-session');

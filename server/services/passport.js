@@ -21,16 +21,17 @@ let googleStrategy = new GoogleStrategy({
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback',
         proxy: true
-    }, (accessToken, refreshToken, profile, done) => {
-        User.findOne({googleID: profile.id}).then((existingUser) => {
-            if (existingUser) {
-                //already have record of user
-                done(null, existingUser);
-            } else {
-                //need to create new user
-                new User({googleID: profile.id}).save().then(user => done(null, user));
-            }
-        });
+    }, async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({googleID: profile.id});
+        if (existingUser) {
+            //already have record of user
+            return done(null, existingUser);
+        }
+
+        //need to create new user
+        const user = await new User({googleID: profile.id}).save();
+        done(null, user);
+
     }
 );
 

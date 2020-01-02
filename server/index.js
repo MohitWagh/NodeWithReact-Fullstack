@@ -1,4 +1,4 @@
-console.log('\nserver has started\n')
+console.log('\nserver has started\n');
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -13,7 +13,7 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 app.use(cookiesSession({
-    maxAge: 30*24*60*60*1000,
+    maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
 }));
 app.use(passport.initialize());

@@ -32,6 +32,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
     //Express will serve up the index.html file if it doesnt recognise the route
+    const path = require('path');
     app.get('*', (req, res) => {
         res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });

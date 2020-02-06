@@ -11,7 +11,8 @@
   "scripts": {
     "start": "node index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"nodemon run start\" \"npm run client\""
+    "dev": "concurrently \"nodemon run start\" \"npm run client\"",
+    "heroku-postbuild": "NMP_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
